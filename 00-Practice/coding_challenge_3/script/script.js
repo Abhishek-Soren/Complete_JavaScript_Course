@@ -1,37 +1,62 @@
-// Data 1
+// Test Data
+const dolphinsScores1 = [96, 108, 89];
+const koalasScores1 = [88, 91, 110];
 
-let markWeight = 78;
-let markHeight = 1.69;
+const dolphinsScoresBonus1 = [97, 112, 101];
+const koalasScoresBonus1 = [109, 95, 123];
 
-let markBMI = markWeight / markHeight ** 2;
+const dolphinsScoresBonus2 = [97, 112, 101];
+const koalasScoresBonus2 = [109, 95, 106];
 
-let johnWeight = 92;
-let johnHeight = 1.95;
+// FUnction to calculate average
+function calcAverage(scores) {
+    let average = 0;
+    for (const element of scores) {
+        average += element;
+    }
+    average /= scores.length;
+    average = average.toFixed(2);
+    return average;
+}
 
-let johnBMI = johnWeight / johnHeight ** 2;
+// Function to determine winner with bonuses
+function determineWinner(dolphinsScore, koalasScore) {
+    let dolphinsAverage = calcAverage(dolphinsScore);
+    let koalasAverage = calcAverage(koalasScore);
 
-let markHigherBMI = markBMI > johnBMI;
+    console.log(`Dolphins Average: ${dolphinsAverage}, Koalas Average: ${koalasAverage}`);
 
-console.log(`Mark: Weight=${markWeight}kg, Height=${markHeight}m, BMI=${markBMI}`);
-console.log(`John: Weight=${johnWeight}kg, Height=${johnHeight}m, BMI=${johnBMI}`);
+    console.log("Basic Calculation");
 
-console.log("For Data 1 : Is Marks BMI higher? ", markHigherBMI);
+    if (dolphinsAverage > koalasAverage) {
+        console.log("Dolphins win.");
+    } else if (dolphinsAverage === koalasAverage) {
+        console.log("Draw.");
+    } else {
+        console.log("Koalas win");
+    }
+    console.log("Bonus Calculation");
+    if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
+        console.log("Dolphins win.");
+    } else if (dolphinsAverage < koalasAverage && koalasAverage >= 100) {
+        console.log("Koalas win");
+    } else if (
+        dolphinsAverage === koalasAverage &&
+        dolphinsAverage >= 100 &&
+        koalasAverage >= 100
+    ) {
+        console.log("Draw.");
+    } else {
+        console.log("NO team wins");
+    }
+}
 
-// Data 2
+// Test cases
+console.log("--- Data 1 ---");
+determineWinner(dolphinsScores1, koalasScores1);
 
-markWeight = 95;
-markHeight = 1.88;
+console.log("\n--- Bonus Data 1 ---");
+determineWinner(dolphinsScoresBonus1, koalasScoresBonus1);
 
-markBMI = markWeight / markHeight ** 2;
-
-johnWeight = 85;
-johnHeight = 1.76;
-
-johnBMI = johnWeight / johnHeight ** 2;
-
-markHigherBMI = markBMI > johnBMI;
-
-console.log(`Mark: Weight=${markWeight}kg, Height=${markHeight}m, BMI=${markBMI}`);
-console.log(`John: Weight=${johnWeight}kg, Height=${johnHeight}m, BMI=${johnBMI}`);
-
-console.log("For Data 2 : Is Marks BMI higher? ", markHigherBMI);
+console.log("\n--- Bonus Data 2 ---");
+determineWinner(dolphinsScoresBonus2, koalasScoresBonus2);
