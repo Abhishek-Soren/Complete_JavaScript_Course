@@ -1,14 +1,32 @@
 body {
-    height: 95vh;
-    display: flex;
-    align-items: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
-
-div {
-    width: 400px;
-    margin: auto auto;
+h1 {
+    color: #2c3e50;
 }
-
-div h1 {
-    text-align: center;
+h2 {
+    color: #34495e;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+.task {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.test-data {
+    background-color: #e8f4f8;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.hints {
+    background-color: #f0f7eb;
+    padding: 15px;
+    border-radius: 5px;
 }
